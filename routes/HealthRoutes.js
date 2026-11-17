@@ -8,7 +8,7 @@ const router = express.Router();
  * /api/health:
  *   get:
  *     summary: Health Check Endpoint
- *     description: Returns the operational health status of the Jigyasa6800 backend.
+ *     description: Returns the operational health status of the Jigyasa6800 backend and database connection.
  *     tags:
  *       - Health
  *     responses:
@@ -28,6 +28,15 @@ const router = express.Router();
  *                 status:
  *                   type: string
  *                   example: OK
+ *                 database:
+ *                   type: object
+ *                   properties:
+ *                     status:
+ *                       type: string
+ *                       example: Connected
+ *                     name:
+ *                       type: string
+ *                       example: jigyasa6800
  */
 router.get('/health', healthCheck);
 

@@ -1,4 +1,12 @@
 import mongoose from 'mongoose';
+import dns from 'dns';
+
+// Fix for querySrv ECONNREFUSED on local ISP / Windows DNS resolvers
+try {
+  dns.setServers(['8.8.8.8', '8.8.4.4']);
+} catch (err) {
+  // Fallback if custom DNS configuration fails
+}
 
 /**
  * Connect to MongoDB Atlas using Mongoose
